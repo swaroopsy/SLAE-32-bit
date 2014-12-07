@@ -1,0 +1,1 @@
+bind_shell_tcp shellcode
