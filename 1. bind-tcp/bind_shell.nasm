@@ -6,7 +6,7 @@ section .text
 _start:
 
 xor ebx,ebx  ;To avoid null bytes
-
+mul ebx
 ;sock = socket(AF_INET, SOCK_STREAM, 0);
 ;1st argument: 0
 ;2nd argument: SOCK_STREAM = 0x1
