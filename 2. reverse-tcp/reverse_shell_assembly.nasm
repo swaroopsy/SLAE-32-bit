@@ -47,6 +47,10 @@ mov ecx,esp ;save argument list on stack
 
 ;connect(sock, (struct sockaddr *)&server, sockaddr_len);
 
+;argument1:sockaddr_len
+;argument2:(struct sockaddr *)&server
+;argument3:sock descriptor
+
 push byte 0x10  ;sockaddr_len
 push ecx  ;(struct sockaddr *)&server           
 push ebx   ;push for socket descriptor              
