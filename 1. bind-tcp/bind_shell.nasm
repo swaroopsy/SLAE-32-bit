@@ -5,7 +5,7 @@ global _start
 section .text
 _start:
 
-xor ebx,ebx
+xor ebx,ebx  ;To avoid null bytes
 
 ;sock = socket(AF_INET, SOCK_STREAM, 0);
 ;1st argument: 0
