@@ -4,7 +4,7 @@
 global _start	
 ;tag word so our egghunter can find the shellcode		
 
-db "w00tw00t"  ;declaring our keywork
+db "w00tw00t"  ;declaring our keyword
 
 section .text
 _start:
